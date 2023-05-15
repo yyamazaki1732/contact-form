@@ -1,5 +1,4 @@
 import classes from "./Form.module.scss";
-/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState, useEffect } from "react";
 
@@ -20,7 +19,7 @@ export const Form = () => {
 
   useEffect(() => {
     setSelectDesc(updateDesc(selectTitle));
-    setSisplay((prevState) => !prevState);
+    setSisplay(updateInput(selectTitle));
     // setInput(display);
   }, [selectTitle]);
 
@@ -31,6 +30,15 @@ export const Form = () => {
       return desc[1];
     } else {
       return desc[2];
+    }
+  };
+  const updateInput = (text) => {
+    if (text === "個人") {
+      return false;
+    } else if (text === "メディア") {
+      return true;
+    } else {
+      return true;
     }
   };
 
